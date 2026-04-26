@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TokoKue</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #f8f8f8;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    background: #ff7a7a;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+/* Hero Section */
+ .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+    url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c'); background-size:
+     cover; background-position: center; height: 300px; display: flex; justify-content: center; align-items: center;
+      color: white; text-align: center; }
+
+/* Profile */
+.profile {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.profile p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+/* Contact */
+.contact {
+    background: #fff0f0;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact p {
+    margin: 10px 0;
+}
+
+/* Produk */
+.container {
+    padding: 40px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.price {
+    color: #ff7a7a;
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.navbar h1 {
+    text-align: center;
+    width: 100%;
+}
+
+/* Container */
+.profile-features {
+    max-width: 1100px;
+    margin: 60px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+}
+
+/* Card */
+.feature {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efek hover naik + glow */
+.feature:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(255,122,122,0.3);
+}
+
+/* Icon */
+.feature h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ff6b6b;
+}
+
+/* Text */
+.feature p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Garis gradient atas */
+.feature::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #ff7a7a, #ffbaba);
+}
+/* SECTION */
+.profile2 {
+    padding: 80px 20px;
+    background: #fff;
+}
+
+/* CONTAINER */
+.profile-container2 {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.profile-img img:hover {
+    transform: scale(1.05);
+}
+
+/* TEKS */
+.profile-text2 {
+    flex: 1;
+}
+
+.profile-text2 h2 {
+    font-size: 34px;
+    color: #ff6b6b;
+    margin-bottom: 15px;
+}
+
+.profile-text2 p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* BUTTON */
+.btn-profile2 {
+    padding: 10px 20px;
+    border: none;
+    background: linear-gradient(45deg, #ff7a7a, #ff5252);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-profile2:hover {
+    transform: translateY(-3px);
+}
+
+/* Container supaya tengah */
+.title-board {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0;
+    position: relative;
+}
+
+/* Papan */
+.title-board h2 {
+    background: #d2a679; /* warna kayu */
+    color: white;
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-size: 28px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+/* Tali kiri */
+.title-board h2::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: 20%;
+    width: 2px;
+    height: 40px;
+    background: #555;
+}
+
+/* Tali kanan */
+.title-board h2::after {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: 20%;
+    width: 2px;
+    height: 40px;
+    background: #555;
+}
+
+/* Paku kiri */
+.title-board::before {
+    content: "";
+    position: absolute;
+    top: -45px;
+    left: 20%;
+    width: 10px;
+    height: 10px;
+    background: #333;
+    border-radius: 50%;
+}
+
+/* Paku kanan */
+.title-board::after {
+    content: "";
+    position: absolute;
+    top: -45px;
+    right: 20%;
+    width: 10px;
+    height: 10px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.judul-menu {
+    text-align: center;
+    font-size: 32px;
+    color: #ff6b6b;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.judul-menu::before,
+.judul-menu::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 3px;
+    background: #ff7a7a;
+}
+
+.judul-menu::before {
+    left: 20%;
+}
+
+.judul-menu::after {
+    right: 20%;
+}
+
+.contact {
+    background: linear-gradient(135deg, #fff5f5, #ffeaea);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* Judul */
+.contact-title {
+    font-size: 32px;
+    color: #ff6b6b;
+    margin-bottom: 40px;
+}
+
+/* Box */
+.contact-box {
+    background: white;
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.contact-box:hover {
+    transform: translateY(-8px);
+}
+
+/* Item */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.contact-item span {
+    font-size: 20px;
+}
+
+.contact-item a {
+    text-decoration: none;
+    color: #333;
+}
+
+.contact-item a:hover {
+    color: #ff7a7a;
+}
+
+/* Sosial */
+.contact-social {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Tombol sosial */
+.social-btn {
+    text-decoration: none;
+    background: #ff7a7a;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.social-btn:hover {
+    background: #ff5252;
+    transform: scale(1.05);
+}
+
+/* Paragraf utama */
+.text-utama {
+    font-size: 17px;
+    line-height: 1.9;
+    color: #444;
+    text-align: justify;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Huruf pertama besar (drop cap) */
+.text-utama::first-letter {
+    font-size: 55px;
+    font-weight: bold;
+    float: left;
+    line-height: 1;
+    margin-right: 10px;
+    color: #ff6b6b;
+}
+
+/* Paragraf kedua */
+.text-kedua {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    text-align: justify;
+}
+
+/* Optional biar lebih halus */
+.text-utama,
+.text-kedua {
+    letter-spacing: 0.5px;
+}
+
+/* Judul utama */
+.judul-hero {
+    font-size: 38px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 20px 0;
+
+    /* Gradient text */
+    background: linear-gradient(45deg, #5a76d1, #ffbaba);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Shadow halus */
+    text-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Navbar --> <div class="navbar"> 
+    <h1>TokoKue</h1>
+        </div>
+
+<!-- Hero -->
+<div class="hero">
+<marquee><h2 class="judul-hero">Selamat Datang di Toko Kue Kami </h2></marquee>
+</div>
+
+<div class="profile2">
+    <div class="profile-container2">
+
+        <!-- Gambar -->
+        <div class="profile-img">
+           
+        <!-- Teks -->
+        <div class="profile-text2">
+            <div class="title-board">
+    <h2>Tentang Kami TokoKue 🍰</h2>
+</div>
+           <p class="text-utama">
+    Kami menghadirkan berbagai pilihan kue dengan rasa autentik dan kualitas premium.
+    Setiap produk dibuat dengan bahan terbaik dan penuh perhatian.
+</p>
+
+<p class="text-kedua">
+    Dari kue modern hingga tradisional, TokoKue siap menemani setiap momen spesial Anda.
+</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="contact">
+    <h2 class="contact-title">Hubungi Kami 💌</h2>
+
+    <div class="contact-box">
+
+        <div class="contact-item">
+            <span>📍</span>
+            <p>Jl. Kue Manis No.123</p>
+        </div>
+
+        <div class="contact-item">
+            <span>📞</span>
+            <p><a href="tel:081234567890">0812-3456-7890</a></p>
+        </div>
+
+        <div class="contact-item">
+            <span>📧</span>
+            <p><a href="mailto:tokokue@email.com">tokokue@email.com</a></p>
+        </div>
+
+        <div class="contact-social">
+            <a href="#" class="social-btn">📷 Instagram</a>
+            <a href="#" class="social-btn">💬 WhatsApp</a>
+            <a href="#" class="social-btn">📘 Facebook</a>
+        </div>
+
+    </div>
+</div>
+
+ <!-- Keunggulan -->
+  <div class="profile-features">
+    <div class="feature">
+      <h3>🍫 Bahan Premium</h3>
+      <p>Kualitas terbaik untuk rasa maksimal</p>
+    </div>
+
+    <div class="feature">
+      <h3>👩‍🍳 Chef Profesional</h3>
+      <p>Dibuat oleh ahli berpengalaman</p>
+    </div>
+
+    <div class="feature">
+      <h3>🚚 Pengiriman Cepat</h3>
+      <p>Aman & tepat waktu</p>
+    </div>
+
+    <div class="feature">
+      <h3>🎂 Custom Order</h3>
+      <p>Desain sesuai keinginan</p>
+    </div>
+  </div>
+
+
+<!-- Produk -->
+<div class="container">
+   <h2 class="judul-menu">Menu Kue</h2>
+    <div class="products">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75">
+            <div class="card-content">
+                <h3>Chocolate Cake</h3>
+                <p class="price">Rp 50.000</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b">
+            <div class="card-content">
+                <h3>Donat coklat</h3>
+                <p class="price">Rp 55.000</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec">
+            <div class="card-content">
+                <h3>Roti</h3>
+                <p class="price">Rp 10.000</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7">
+            <div class="card-content">
+                <h3>cake strawberry</h3>
+                <p class="price">Rp 20.000</p>
+            </div>
+        </div>
+
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b ">
+            <div class="card-content">
+                <h3>Donat coklat seres</h3>
+                <p class="price">Rp 10.000</p>
+            </div>
+        </div>
+
+         <div class="card">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
+            <div class="card-content">
+                <h3>Cake ulang tahun</h3>
+                <p class="price">Rp 100.000</p>
+            </div>
+        </div>
+
+         <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1713447395823-2e0b40b75a89?q=80&w=382&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+            <div class="card-content">
+                <h3>Cake ulang tahun strawberry</h3>
+                <p class="price">Rp 100.000</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1769519421425-e5f542a96714?q=80&w=873&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+            <div class="card-content">
+                <h3>Desert</h3>
+                <p class="price">Rp 50.000</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>© 2026 TokoKue || By Evrilya </p>
+</div>
+
+</body>
+</html>
